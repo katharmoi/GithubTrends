@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GithubTrends</string>
+    <string name="no_results">No Result :((</string>
+    <string name="language">Language: %s</string>
+</resources>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/row_item_margin_horizontal"
+    android:paddingTop="@dimen/row_item_margin_vertical"
+    android:id="@+id/repo_item"
+    tools:ignore="UnusedAttribute">
+
+    <TextView
+        android:id="@+id/repoName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/titleColor"
+        android:textSize="@dimen/repo_name_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Repo Item" />
+
+    <TextView
+        android:id="@+id/repoDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:maxLines="10"
+        android:paddingVertical="@dimen/row_item_margin_vertical"
+        android:textColor="?android:textColorPrimary"
+        android:textSize="@dimen/repo_description_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/repoName"
+        tools:ignore="UnusedAttribute"
+        tools:text="Repo Description" />
+
+    <TextView
+        android:id="@+id/repoLanguage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:paddingVertical="@dimen/row_item_margin_vertical"
+        android:text="@string/language"
+        android:textSize="@dimen/repo_description_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/repoDescription"
+        tools:ignore="RtlCompat" />
+
+    <ImageView
+        android:id="@+id/star"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/row_item_margin_vertical"
+        android:src="@drawable/ic_star"
+        app:layout_constraintBottom_toBottomOf="@+id/repoStars"
+        app:layout_constraintEnd_toStartOf="@+id/repoStars"
+        app:layout_constraintTop_toTopOf="@+id/repoStars" />
+
+    <TextView
+        android:id="@+id/repoStars"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/row_item_margin_vertical"
+        android:textSize="@dimen/repo_description_size"
+        app:layout_constraintBaseline_toBaselineOf="@+id/repoForks"
+        app:layout_constraintEnd_toStartOf="@id/forks"
+        tools:text="30" />
+
+    <ImageView
+        android:id="@+id/forks"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/row_item_margin_vertical"
+        android:src="@drawable/ic_git_branch"
+        app:layout_constraintBottom_toBottomOf="@+id/repoForks"
+        app:layout_constraintEnd_toStartOf="@+id/repoForks"
+        app:layout_constraintTop_toTopOf="@+id/repoForks" />
+
+    <TextView
+        android:id="@+id/repoForks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/row_item_margin_vertical"
+        android:textSize="@dimen/repo_description_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/repoDescription"
+        tools:text="30" />
+</android.support.constraint.ConstraintLayout>
