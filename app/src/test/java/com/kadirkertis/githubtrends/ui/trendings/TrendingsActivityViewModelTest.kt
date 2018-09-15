@@ -26,7 +26,8 @@ class TrendingsActivityViewModelTest {
     }
 
     @Test
-    fun `should return first page when opened`() {
+    fun `should not update when update is in progress`() {
+
 
     }
 }
