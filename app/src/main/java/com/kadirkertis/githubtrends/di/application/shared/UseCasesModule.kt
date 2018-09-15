@@ -1,5 +1,6 @@
 package com.kadirkertis.githubtrends.di.application.shared
 
+import com.kadirkertis.domain.interactor.trending.GetNextPageUseCase
 import com.kadirkertis.domain.interactor.trending.GetTrendingReposUseCase
 import com.kadirkertis.domain.interactor.trending.repository.GithubRepository
 import dagger.Module
@@ -16,5 +17,11 @@ class UseCasesModule {
     @Singleton
     fun provideGetTrendingReposUsecase(githubRepository: GithubRepository): GetTrendingReposUseCase {
         return GetTrendingReposUseCase(githubRepository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGetNextPageUsecase(getTrendingReposUseCase: GetTrendingReposUseCase):GetNextPageUseCase {
+        return GetNextPageUseCase(getTrendingReposUseCase)
     }
 }

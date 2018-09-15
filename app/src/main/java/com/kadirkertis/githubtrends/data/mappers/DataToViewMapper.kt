@@ -19,5 +19,6 @@ class DataToViewMapper @Inject constructor() : (RepoData) -> Repo {
             repoData.description,
             repoData.language,
             repoData.forks,
+            repoData.stars,
             repoData.imgUrl)
 }

@@ -22,11 +22,11 @@ class GithubRepositoryImpl(
      * Emits data from the db first then updates the db from remote
      * and emits new data if updated.
      */
-    override fun getTrendingRepositories(): Flowable<List<Repo>> {
+    override fun getTrendingRepositoriesByPage(page: Int): Flowable<List<Repo>> {
         return cache.getReposByStarCount()
                 .subscribeOn(Schedulers.io())
                 .doOnSubscribe {
-                    service.getTrendingAndroidRepos().subscribeOn(Schedulers.io())
+                    service.getTrendingAndroidReposByPage(page, 30).subscribeOn(Schedulers.io())
                             .subscribe({ result ->
                                 Completable.fromCallable { cache.insert(result) }.subscribeOn(Schedulers.io()).subscribe()
                             },

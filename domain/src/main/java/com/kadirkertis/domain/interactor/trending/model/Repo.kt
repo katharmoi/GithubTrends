@@ -8,4 +8,5 @@ class Repo(var id: Long,
            val description: String?,
            val language:String?,
            val forksCount: Int,
+           val starCount: Int,
            val imgUrl:String?)

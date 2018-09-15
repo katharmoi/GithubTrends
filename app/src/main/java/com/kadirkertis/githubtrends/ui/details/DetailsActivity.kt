@@ -9,5 +9,8 @@ class DetailsActivity : DaggerAppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
+
+        //Display Back Navigation icon
+        actionBar.setDisplayHomeAsUpEnabled(true)
     }
 }

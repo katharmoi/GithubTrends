@@ -7,6 +7,6 @@ import io.reactivex.Single
  * API Service interface
  */
 interface GithubService {
-    fun getTrendingAndroidRepos():Single<List<RepoData>>
+    fun getTrendingAndroidReposByPage(page: Int, per_page: Int): Single<List<RepoData>>
 
 }

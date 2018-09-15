@@ -44,13 +44,15 @@ class TrendingsAdapter @Inject constructor() : RecyclerView.Adapter<TrendingsAda
 
     class TrendingsViewHolder(itemView: View, private val context: Context) : RecyclerView.ViewHolder(itemView) {
         private var repo: Repo? = null
-        val intent:Intent = Intent()
 
         fun setItem(repo: Repo) {
             this.repo = repo
             itemView.repoName.text = repo.name
             itemView.repoDescription.text = repo.description
             itemView.repoForks.text = repo.forksCount.toString()
+            itemView.repoLanguage.text = repo.language
+            itemView.repoStars.text = repo.starCount.toString()
+
             val intent:Intent = Intent(context,DetailsActivity::class.java)
             intent.putExtra(Constants.REPO_ID,repo.id)
             itemView.setOnClickListener { context.startActivity(intent) }

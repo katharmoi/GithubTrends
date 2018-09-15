@@ -9,6 +9,6 @@ import io.reactivex.Flowable
  */
 interface GithubRepository {
 
-    fun getTrendingRepositories(): Flowable<List<Repo>>
+    fun getTrendingRepositoriesByPage(page:Int): Flowable<List<Repo>>
 
 }

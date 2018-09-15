@@ -2,4 +2,6 @@
     <string name="app_name">GithubTrends</string>
     <string name="no_results">No Result :((</string>
     <string name="language">Language: %s</string>
+    <string name="avatar_desc">User Avatar</string>
+    <string name="description_header">Description</string>
 </resources>

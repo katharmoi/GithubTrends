@@ -15,6 +15,8 @@ interface GithubApi {
     @GET("search/repositories?sort=stars")
     fun getReposByStarCount(
             @Query("q") query: String,
+            @Query("page") page: Int,
+            @Query("per_page") itemsPerPage: Int,
             @Query("sort") sortCriteria: String,
             @Query("order") order: String
     ): Single<RetrofitRepoResponse>

@@ -10,6 +10,7 @@ dependencies {
     //Mockito
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.mockito:mockito-inline:' + mockitoVersion
+    testImplementation "io.mockk:mockk:1.8.7"
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
 }
 

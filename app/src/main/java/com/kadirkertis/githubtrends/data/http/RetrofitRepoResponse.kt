@@ -8,6 +8,5 @@ import com.kadirkertis.githubtrends.data.model.RepoData
  */
 data class RetrofitRepoResponse(
         @SerializedName("total_count") val total: Int = 0,
-        @SerializedName("items") val items: List<RepoData> = emptyList(),
-        val nextPage: Int? = null
+        @SerializedName("items") val items: List<RepoData> = emptyList()
 )
