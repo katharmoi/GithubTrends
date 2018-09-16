@@ -16,7 +16,7 @@ object TestData {
     private val TEST_LANGUAGE = "Kotlin"
     private val TEST_STAR_COUNT = 12345
     private val TEST_USER_FORK_COUNT = 12
-    private val TEST_OWNER = Owner("id","Kadir","https://github.com/someImage.jpg")
+    private val TEST_OWNER = Owner("id","kadir","https://github.com/someImage.jpg")
 
     val TEST_REPO = Repo(TEST_USER_ID,
             TEST_NAME,

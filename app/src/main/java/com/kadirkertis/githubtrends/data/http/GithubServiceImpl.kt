@@ -11,8 +11,8 @@ class GithubServiceImpl(private val githubApi: GithubApi) : GithubService {
     }
 
     companion object {
-        private val ANDROID_QUERY = "android"
-        private val SORT_CRITERIA = "stars"
-        private val ORDER = "desc"
+        private const val ANDROID_QUERY = "Android"
+        private const val SORT_CRITERIA = "stars"
+        private const val ORDER = "desc"
     }
 }

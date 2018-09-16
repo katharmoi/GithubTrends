@@ -4,7 +4,7 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import com.kadirkertis.domain.interactor.trending.GetNextPageUseCase
 import com.kadirkertis.domain.interactor.trending.GetTrendingReposUseCase
-import com.kadirkertis.domain.interactor.trending.model.Repo
+import com.kadirkertis.domain.interactor.model.Repo
 import com.kadirkertis.githubtrends.util.Response
 import io.reactivex.Scheduler
 import io.reactivex.disposables.CompositeDisposable
@@ -29,22 +29,24 @@ class TrendingsActivityViewModel(private val getNextPageUseCase: GetNextPageUseC
     internal fun loadTrendingRepos() {
         disposables.add(getNextPageUseCase.execute()
                 .onBackpressureDrop()
-                .doOnSubscribe { _ -> response.setValue(Response.loading()); isUpdating = true }
+                .doOnSubscribe { response.setValue(Response.loading()); isUpdating = true }
+                .doOnEach { isUpdating = false }
+                .doOnError { isUpdating = false }
                 .observeOn(mainThreadSchedular)
                 .subscribe(
-                        { result -> response.setValue(Response.success(result)); isUpdating = false },
-                        { error -> response.setValue(Response.error(error)) }
+                        { response.setValue(Response.success(it)) },
+                        { response.setValue(Response.error(it)) }
                 )
         )
     }
 
     fun scrollListener(visibleItemCount: Int, lastVisibleItem: Int, totalItemCount: Int) {
-        if (!isUpdating && totalItemCount <= (visibleItemCount + lastVisibleItem + VISIBLE_THRESHOLD)) {
+        if (!isUpdating && totalItemCount <= (visibleItemCount + lastVisibleItem + LOADING_POINT)) {
             loadTrendingRepos()
         }
     }
 
     companion object {
-        private const val VISIBLE_THRESHOLD: Int = 5
+        private const val LOADING_POINT: Int = 5
     }
 }

@@ -3,13 +3,14 @@ package com.kadirkertis.githubtrends.di.application.shared
 import android.content.Context
 import android.util.Log
 import com.jakewharton.picasso.OkHttp3Downloader
-import com.kadirkertis.domain.interactor.trending.repository.GithubRepository
+import com.kadirkertis.domain.interactor.repository.GithubRepository
 import com.kadirkertis.githubtrends.BuildConfig
 import com.kadirkertis.githubtrends.data.db.RepoDao
 import com.kadirkertis.githubtrends.data.http.GithubApi
 import com.kadirkertis.githubtrends.data.http.GithubService
 import com.kadirkertis.githubtrends.data.http.GithubServiceImpl
-import com.kadirkertis.githubtrends.data.mappers.DataToViewMapper
+import com.kadirkertis.githubtrends.data.mappers.DataToEntityMapper
+import com.kadirkertis.githubtrends.data.mappers.EntityToViewMapper
 import com.kadirkertis.githubtrends.data.repository.GithubRepositoryImpl
 import com.kadirkertis.githubtrends.util.NetworkUtils
 import com.squareup.picasso.Picasso
@@ -45,8 +46,9 @@ class DataModule {
     @Provides
     fun provideGithubRepository(githubService: GithubService,
                                 dao: RepoDao,
-                                mapper: DataToViewMapper): GithubRepository {
-        return GithubRepositoryImpl(githubService, dao, mapper)
+                                mapperView: EntityToViewMapper,
+                                mapperEntity: DataToEntityMapper): GithubRepository {
+        return GithubRepositoryImpl(githubService, dao, mapperView, mapperEntity)
     }
 
 
@@ -70,11 +72,8 @@ class DataModule {
                             @Named(OKHTTP_NETWORK_CACHE) cacheInterceptor: Interceptor,
                             @Named(OKHTTP_OFFLINE_CACHE_DURATION) offlineCacheInterceptor: Interceptor): OkHttpClient {
 
-//        if (BuildConfig.DEBUG) {
-        //            IdlingResources.registerOkHttp(client);
-        //        }
         return OkHttpClient.Builder()
-                .addInterceptor(loggingInterceptor)
+                //.addInterceptor(loggingInterceptor)
                 .addInterceptor(offlineCacheInterceptor)
                 .addNetworkInterceptor(cacheInterceptor)
                 .cache(cache)

@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.kadirkertis.domain.interactor.trending.model.Repo
+import com.kadirkertis.domain.interactor.model.Repo
 import com.kadirkertis.githubtrends.R
 import com.kadirkertis.githubtrends.di.activity.ActivityScope
 import com.kadirkertis.githubtrends.ui.details.DetailsActivity
@@ -47,17 +47,23 @@ class TrendingsAdapter @Inject constructor() : RecyclerView.Adapter<TrendingsAda
 
         fun setItem(repo: Repo) {
             this.repo = repo
-            itemView.repoName.text = repo.name
-            itemView.repoDescription.text = repo.description
-            itemView.repoForks.text = repo.forksCount.toString()
-            itemView.repoLanguage.text = repo.language
-            itemView.repoStars.text = repo.starCount.toString()
+            itemView.apply {
+                detailRepoName.text = repo.name
+                repoDescription.text = repo.description
+                detailRepoForks.text = repo.forksCount.toString()
+                repoLanguage.text = repo.language
+                detailRepoStars.text = repo.starCount.toString()
 
-            val intent:Intent = Intent(context,DetailsActivity::class.java)
-            intent.putExtra(Constants.REPO_ID,repo.id)
-            itemView.setOnClickListener { context.startActivity(intent) }
+            }
 
+            itemView.setOnClickListener {
+                val intent = Intent(itemView.context, DetailsActivity::class.java).apply {
+                    putExtra(Constants.REPO_ID, repo.id)
+                }
+                itemView.context.startActivity(intent)
+            }
         }
 
     }
+
 }

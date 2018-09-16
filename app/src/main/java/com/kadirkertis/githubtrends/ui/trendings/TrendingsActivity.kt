@@ -7,12 +7,11 @@ import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.widget.Toast
-import com.kadirkertis.domain.interactor.trending.model.Repo
+import com.kadirkertis.domain.interactor.model.Repo
 import com.kadirkertis.githubtrends.R
 import com.kadirkertis.githubtrends.util.Response
 import com.kadirkertis.githubtrends.util.Status
 import dagger.android.support.DaggerAppCompatActivity
-import io.reactivex.processors.PublishProcessor
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 

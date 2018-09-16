@@ -1,7 +1,7 @@
 package com.kadirkertis.domain.interactor.trending
 
-import com.kadirkertis.domain.interactor.trending.model.Repo
-import com.kadirkertis.domain.interactor.trending.repository.GithubRepository
+import com.kadirkertis.domain.interactor.repository.GithubRepository
+import com.kadirkertis.domain.interactor.model.Repo
 import com.kadirkertis.domain.type.FlowableUseCaseWithParameter
 import io.reactivex.Flowable
 

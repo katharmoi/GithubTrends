@@ -10,7 +10,7 @@
     tools:ignore="UnusedAttribute">
 
     <TextView
-        android:id="@+id/repoName"
+        android:id="@+id/detailRepoName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textColor="@color/titleColor"
@@ -30,7 +30,7 @@
         android:textSize="@dimen/repo_description_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/repoName"
+        app:layout_constraintTop_toBottomOf="@+id/detailRepoName"
         tools:ignore="UnusedAttribute"
         tools:text="Repo Description" />
 
@@ -47,37 +47,37 @@
         tools:ignore="RtlCompat" />
 
     <ImageView
-        android:id="@+id/star"
+        android:id="@+id/repoStar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/row_item_margin_vertical"
         android:src="@drawable/ic_star"
-        app:layout_constraintBottom_toBottomOf="@+id/repoStars"
-        app:layout_constraintEnd_toStartOf="@+id/repoStars"
-        app:layout_constraintTop_toTopOf="@+id/repoStars" />
+        app:layout_constraintBottom_toBottomOf="@+id/detailRepoStars"
+        app:layout_constraintEnd_toStartOf="@+id/detailRepoStars"
+        app:layout_constraintTop_toTopOf="@+id/detailRepoStars" />
 
     <TextView
-        android:id="@+id/repoStars"
+        android:id="@+id/detailRepoStars"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingVertical="@dimen/row_item_margin_vertical"
         android:textSize="@dimen/repo_description_size"
-        app:layout_constraintBaseline_toBaselineOf="@+id/repoForks"
-        app:layout_constraintEnd_toStartOf="@id/forks"
+        app:layout_constraintBaseline_toBaselineOf="@+id/detailRepoForks"
+        app:layout_constraintEnd_toStartOf="@id/detailForks"
         tools:text="30" />
 
     <ImageView
-        android:id="@+id/forks"
+        android:id="@+id/detailForks"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/row_item_margin_vertical"
         android:src="@drawable/ic_git_branch"
-        app:layout_constraintBottom_toBottomOf="@+id/repoForks"
-        app:layout_constraintEnd_toStartOf="@+id/repoForks"
-        app:layout_constraintTop_toTopOf="@+id/repoForks" />
+        app:layout_constraintBottom_toBottomOf="@+id/detailRepoForks"
+        app:layout_constraintEnd_toStartOf="@+id/detailRepoForks"
+        app:layout_constraintTop_toTopOf="@+id/detailRepoForks" />
 
     <TextView
-        android:id="@+id/repoForks"
+        android:id="@+id/detailRepoForks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingVertical="@dimen/row_item_margin_vertical"

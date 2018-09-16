@@ -10,9 +10,8 @@ import retrofit2.http.Query
 interface GithubApi {
     /**
      * Get repositories from Github.
-     * Order by start count
      */
-    @GET("search/repositories?sort=stars")
+    @GET("search/repositories")
     fun getReposByStarCount(
             @Query("q") query: String,
             @Query("page") page: Int,
