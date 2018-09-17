@@ -1,7 +1,7 @@
 package com.kadirkertis.githubtrends.data.model
 
 import com.google.gson.annotations.SerializedName
-import com.kadirkertis.domain.interactor.model.Owner
+
 
 /**
  * Github repository model which holdds information about a repository on Github.

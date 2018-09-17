@@ -73,7 +73,7 @@ class DataModule {
                             @Named(OKHTTP_OFFLINE_CACHE_DURATION) offlineCacheInterceptor: Interceptor): OkHttpClient {
 
         return OkHttpClient.Builder()
-                //.addInterceptor(loggingInterceptor)
+                .addInterceptor(loggingInterceptor)
                 .addInterceptor(offlineCacheInterceptor)
                 .addNetworkInterceptor(cacheInterceptor)
                 .cache(cache)

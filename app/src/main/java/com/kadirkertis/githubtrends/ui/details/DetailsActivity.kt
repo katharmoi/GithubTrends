@@ -54,7 +54,6 @@ class DetailsActivity : DaggerAppCompatActivity() {
         val avatarUrl: String? = repo?.owner?.avatarUrl
         Picasso.get()
                 .load(avatarUrl)
-                .centerCrop()
                 .placeholder(R.drawable.no_img)
                 .error(R.drawable.no_img)
                 .into(detailsRepoImg)

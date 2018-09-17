@@ -20,5 +20,5 @@ class EntityToViewMapper @Inject constructor() : (RepoEntity) -> Repo {
             repoEntity.description,
             repoEntity.stars,
             repoEntity.forks,
-            Owner(null, null, repoEntity.avatarUrl))
+            Owner(null, repoEntity.avatarUrl))
 }

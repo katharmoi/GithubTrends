@@ -5,6 +5,5 @@ package com.kadirkertis.domain.interactor.model
  */
 data class Owner (
     var userId: String?,
-    val userName: String?,
     val avatarUrl: String?
 )

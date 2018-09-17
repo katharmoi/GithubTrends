@@ -1,5 +1,6 @@
 package com.kadirkertis.githubtrends.data.mappers
 
+import com.kadirkertis.domain.interactor.model.Owner
 import com.kadirkertis.domain.interactor.model.Repo
 import com.kadirkertis.githubtrends.data.model.RepoData
 import javax.inject.Inject
@@ -20,5 +21,5 @@ class DataToViewMapper @Inject constructor() : (RepoData) -> Repo {
             repoData.description,
             repoData.stars,
             repoData.forks,
-            repoData.owner)
+            Owner(repoData.owner.id.toString(), repoData.owner.avatarUrl))
 }
