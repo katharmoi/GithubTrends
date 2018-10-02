@@ -15,6 +15,10 @@ import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
+/**
+ * This Activity Displays Trending Android Repositories on Github
+ */
+
 class TrendingsActivity : DaggerAppCompatActivity() {
 
     @Inject
@@ -60,9 +64,7 @@ class TrendingsActivity : DaggerAppCompatActivity() {
     }
 
     private fun displaySuccessState(repos: List<Repo>?) {
-        if (repos != null) {
-            adapter.onReposUptade(repos)
-        }
+        repos?.let { adapter.onReposUptade(it) }
     }
 
     private fun startScrollListener() {
